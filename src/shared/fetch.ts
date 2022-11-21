@@ -1,7 +1,6 @@
 import { Profile, signIn, state } from "./store";
 
-// const baseUrl = 'http://localhost:8000/';
-const apiUrl = "/api/";
+const apiUrl = 'http://localhost:8000/api/';
 
 export async function fetchCors(
   url: string,
