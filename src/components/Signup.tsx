@@ -1,7 +1,9 @@
-import { useRef, useState } from "preact/hooks";
+import { route } from 'preact-router';
+import { useState } from "preact/hooks";
+
 import { fetchCors } from "../shared/fetch";
 
-export default function Signup() {
+export default function Signup(_props: { path: string }) {
   const [error, setError] = useState("");
   const [email, setEmail] = useState({ value: "", error: "", dirty: false });
   const [pass1, setPass1] = useState({ value: "", error: "", dirty: false });
@@ -52,7 +54,7 @@ export default function Signup() {
     };
     try {
       await fetchCors("sign-up", "post", body);
-      location.href = "/signin";
+      route("/signin", true);
     } catch (e) {
       setError(e as string);
     }

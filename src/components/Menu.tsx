@@ -1,11 +1,12 @@
+import { route } from 'preact-router';
 import A from "./A";
 import { signOut, state } from "../shared/store";
 
-export default function Menu() {
+export default function Menu(props: any) {
   const onSignOut = (evt: Event) => {
     evt.preventDefault();
     signOut();
-    location.href = "/signin";
+    route("/signin", true);
   };
 
   const menu1 = () => (

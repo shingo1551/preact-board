@@ -1,4 +1,6 @@
 import { Component } from "preact";
+import { route } from 'preact-router';
+
 import { fetchCors } from "../shared/fetch";
 import { state } from "../shared/store";
 
@@ -10,7 +12,7 @@ export interface Post {
 export type Posts = Post[] | null;
 
 export default class Board
-  extends Component<{ posts: Posts }, { posts: Posts }> {
+  extends Component<{}, { posts: Posts }> {
   div: HTMLDivElement | undefined | null;
   text: HTMLTextAreaElement | undefined | null;
 
@@ -26,7 +28,7 @@ export default class Board
       this.setState({ posts: await fetchCors("post", method, body) });
       this.scroll();
     } catch (_e) {
-      location.href = "/signin";
+      route("/signin");
     }
   };
 
@@ -38,9 +40,8 @@ export default class Board
     this.text!.value = "";
   };
 
-  componentDidMount() {
-    this.setState(this.props);
-    this.scroll();
+  async componentDidMount() {
+    await this.fetchPost("get");
   }
 
   render = () => {

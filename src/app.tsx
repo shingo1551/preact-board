@@ -9,7 +9,7 @@ import Signin from "./components/Signin";
 import Signup from "./components/Signup";
 
 export function App() {
-  const [_url, setUrl] = useState('/');
+  const [url, setUrl] = useState('/');
 
   return (
     <>
@@ -18,7 +18,7 @@ export function App() {
       </header>
 
       <main>
-        <Menu />
+        <Menu path={url} />
         <Router onChange={e => setUrl(e.url)}>
           <Board path="/board" />
           <Profile path="/profile" />

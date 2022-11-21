@@ -1,4 +1,5 @@
 import { Component } from "preact";
+import { route } from 'preact-router';
 
 import { setProfile, signOut, state } from "../shared/store";
 import { fetchCors } from "../shared/fetch";
@@ -17,7 +18,7 @@ export default class Profile extends Component<{}, State> {
   componentDidMount() {
     // if (!state.value.jwt) {
     //   signOut();
-    //   location.href = "/signin";
+    // route("/signin", true);
     // }
   }
 
@@ -31,7 +32,7 @@ export default class Profile extends Component<{}, State> {
         phone: this.phone?.value,
       };
       setProfile(await fetchCors("profile", "put", body));
-      location.href = "/board";
+      route("/board");
     } catch (e) {
       this.setState({ error: e as string });
     }

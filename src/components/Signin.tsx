@@ -1,9 +1,10 @@
+import { route } from 'preact-router';
 import { useRef, useState } from "preact/hooks";
 
 import { Error } from "./Error";
 import { fetchCors } from "../shared/fetch";
 
-export default function Signin() {
+export default function Signin(_props: { path: string }) {
   const email = useRef<HTMLInputElement>(null);
   const passwd = useRef<HTMLInputElement>(null);
 
@@ -18,7 +19,7 @@ export default function Signin() {
     };
     try {
       await fetchCors("sign-in", "post", body);
-      location.href = "/board";
+      route("/board");
     } catch (e) {
       setError(e as string);
     }
