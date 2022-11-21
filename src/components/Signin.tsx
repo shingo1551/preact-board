@@ -1,6 +1,6 @@
 import { useRef, useState } from "preact/hooks";
 
-import { Error } from "../components/Error";
+import { Error } from "./Error";
 import { fetchCors } from "../shared/fetch";
 
 export default function Signin() {

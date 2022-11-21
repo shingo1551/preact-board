@@ -1,6 +1,6 @@
 import { useState } from "preact/hooks";
 
-import { Button } from "../components/Button";
+import { Button } from "./Button";
 
 interface CounterProps {
   start: number;

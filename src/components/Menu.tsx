@@ -1,4 +1,4 @@
-import A from "../components/A";
+import A from "./A";
 import { signOut, state } from "../shared/store";
 
 export default function Menu() {
