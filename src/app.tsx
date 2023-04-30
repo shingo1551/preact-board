@@ -14,7 +14,7 @@ export function App() {
   return (
     <>
       <header>
-        <h1>Fresh Board</h1>
+        <h1>Preact Board</h1>
       </header>
 
       <main>

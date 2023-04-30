@@ -18,3 +18,16 @@ npm i preact-router
 npm install @twind/preact
 ```
 # preact-board
+
+## capacitor
+
+```bash
+npx cap init
+
+npm install @capacitor/android @capacitor/ios
+npx cap add android
+npx cap add ios
+
+npx cap sync
+npx cap run ios
+```
