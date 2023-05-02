@@ -1,6 +1,7 @@
 import { Profile, signIn, state } from "./store";
 
 // const apiUrl = 'http://localhost:8000/api/';
+// const apiUrl = 'http://imac.local:8000/api/';
 const apiUrl = "https://fresh-board.deno.dev/api/";
 
 /*

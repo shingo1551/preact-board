@@ -52,7 +52,7 @@
 			<key>imac.local</key>
 			<dict>
 			<key>NSExceptionAllowsInsecureHTTPLoads</key>
-			<string>YES</string>
+			<string>true</string>
 			</dict>
 		</dict>
 	</dict>
