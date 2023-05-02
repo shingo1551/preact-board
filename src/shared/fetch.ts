@@ -1,8 +1,9 @@
 import { Profile, signIn, state } from "./store";
 
 // const apiUrl = 'http://localhost:8000/api/';
-const apiUrl = 'http://192.168.11.3:8000/api/';
+const apiUrl = "https://fresh-board.deno.dev/api/";
 
+/*
 export async function fetchCors(
   url: string,
   method: string,
@@ -21,7 +22,7 @@ export async function fetchCors(
     body: o,
   } as RequestInit;
 
-  const res = (await fetch(apiUrl + url, req));
+  const res = await fetch(apiUrl + url, req);
   if (!res.headers.get("content-type")?.startsWith("application/json")) {
     throw await res.text();
   }
@@ -32,5 +33,39 @@ export async function fetchCors(
   }
 
   // deno-lint-ignore no-explicit-any
+  return json as any;
+}
+*/
+
+import { CapacitorHttp, HttpOptions, HttpHeaders } from "@capacitor/core";
+
+export async function fetchCors(
+  url: string,
+  method: string,
+  body: any = undefined,
+) {
+  const headers:HttpHeaders = { 'content-type': 'application/json' };
+  const jwt = state.value.jwt;
+  if (jwt)
+    headers.Authorization = "Bearer " + jwt;
+
+  const options: HttpOptions = {
+    method: method,
+    url: apiUrl + url,
+    headers: headers,
+    data: body,
+    shouldEncodeUrlParams: false
+  };
+
+  const res = await CapacitorHttp.request(options);
+
+  if (res.data instanceof String)
+    throw res.data;
+
+  const json = await res.data as { jwt: string; profile: Profile };
+  if ("sign-in" === url) {
+    signIn(json);
+  }
+
   return json as any;
 }

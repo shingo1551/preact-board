@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-        <string>preact-board</string>
+	<string>preact-board</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -45,5 +45,16 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>Exception Domains</key>
+		<dict>
+			<key>imac.local</key>
+			<dict>
+			<key>NSExceptionAllowsInsecureHTTPLoads</key>
+			<string>YES</string>
+			</dict>
+		</dict>
+	</dict>
 </dict>
 </plist>
