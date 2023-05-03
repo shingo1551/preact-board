@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@capacitor/core": "^4.8.0",
+    "@capacitor/geolocation": "^5.0.0",
     "@capacitor/ios": "^4.8.0",
     "@preact/signals": "^1.1.2",
     "@twind/preact": "^1.0.5",
