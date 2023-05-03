@@ -1,7 +1,7 @@
 import { Profile, signIn, state } from "./store";
 
 // const apiUrl = 'http://localhost:8000/api/';
-// const apiUrl = 'http://imac.local:8000/api/';
+// const apiUrl = "http://imac.local:8000/api/";
 const apiUrl = "https://fresh-board.deno.dev/api/";
 
 /*
@@ -38,30 +38,38 @@ export async function fetchCors(
 }
 */
 
-import { CapacitorHttp, HttpOptions, HttpHeaders } from "@capacitor/core";
+import { CapacitorHttp, HttpHeaders, HttpOptions } from "@capacitor/core";
 
 export async function fetchCors(
   url: string,
   method: string,
   body: any = undefined,
 ) {
-  const headers:HttpHeaders = { 'content-type': 'application/json' };
+  const host = "https://fresh-board.deno.dev";
+  const headers: HttpHeaders = {
+    "content-type": "application/json",
+    origin: host,
+    referer: host,
+  };
+
   const jwt = state.value.jwt;
-  if (jwt)
+  if (jwt) {
     headers.Authorization = "Bearer " + jwt;
+  }
 
   const options: HttpOptions = {
     method: method,
     url: apiUrl + url,
     headers: headers,
     data: body,
-    shouldEncodeUrlParams: false
+    shouldEncodeUrlParams: false,
   };
 
   const res = await CapacitorHttp.request(options);
 
-  if (res.data instanceof String)
+  if (res.data instanceof String) {
     throw res.data;
+  }
 
   const json = await res.data as { jwt: string; profile: Profile };
   if ("sign-in" === url) {

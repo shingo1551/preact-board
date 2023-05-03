@@ -14,6 +14,7 @@ export default function Menu(props: any) {
       <A href="/signup">Sign up</A>
       <A href="/signin">Sign in</A>
       <A href="/board">Board</A>
+      <A href="/video">Video</A>
     </ul>
   );
 

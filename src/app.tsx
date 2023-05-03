@@ -7,6 +7,7 @@ import Board from "./components/Board";
 import Profile from "./components/Profile";
 import Signin from "./components/Signin";
 import Signup from "./components/Signup";
+import Video from "./components/Videos";
 
 export function App() {
   const [url, setUrl] = useState('/');
@@ -24,6 +25,7 @@ export function App() {
           <Profile path="/profile" />
           <Signin path="/signin" />
           <Signup path="/signup" />
+          <Video path="/video" />
 
           <div default>Default</div>
         </Router>
