@@ -16,6 +16,7 @@ export default function Menu(props: any) {
       <A href="/board">Board</A>
       <A href="/video">Video</A>
       <A href="/geolocation">Geolocation</A>
+      <A href="/counter">Counter</A>
     </ul>
   );
 

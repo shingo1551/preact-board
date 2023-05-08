@@ -9,6 +9,7 @@ import Signin from "./components/Signin";
 import Signup from "./components/Signup";
 import Video from "./components/Videos";
 import Geolocation from "./components/Geolocation";
+import Counter from "./components/Counter2";
 
 export function App() {
   const [url, setUrl] = useState('/');
@@ -28,6 +29,7 @@ export function App() {
           <Signup path="/signup" />
           <Video path="/video" />
           <Geolocation path="/geolocation" />
+          <Counter path="/counter" />
 
           <div default>Default</div>
         </Router>
