@@ -4,7 +4,7 @@ import { Profile, signIn, state } from "./store";
 // const apiUrl = "http://imac.local:8000/api/";
 const apiUrl = "https://fresh-board.deno.dev/api/";
 
-/*
+// for Browser
 export async function fetchCors(
   url: string,
   method: string,
@@ -36,8 +36,9 @@ export async function fetchCors(
   // deno-lint-ignore no-explicit-any
   return json as any;
 }
-*/
 
+// for Capacitor
+/*
 import { CapacitorHttp, HttpHeaders, HttpOptions } from "@capacitor/core";
 
 export async function fetchCors(
@@ -78,3 +79,4 @@ export async function fetchCors(
 
   return json as any;
 }
+*/
